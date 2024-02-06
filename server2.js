@@ -27,6 +27,16 @@ const handleConnection = socket => {
           let accStatus = extractField(message, 60, 2)
           let uploadOrReupload = extractField(message, 64, 2)
           let mileage = extractField(message, 66, 8)
+
+          let year, month, day, hour, minute, second;
+          year = parseInt(extractField(dateTime, 0, 2), 16)
+          month = parseInt(extractField(dateTime, 2, 2), 16)
+          day = parseInt(extractField(dateTime, 4, 2), 16)
+          hour = parseInt(extractField(dateTime, 6, 2), 16)
+          minute = parseInt(extractField(dateTime, 8, 2), 16)
+          second = parseInt(extractField(dateTime, 10, 2), 16)
+          let dateGPS = ('Date - ' + day + '/' + month + '/' + year + ' - hora: ' + hour + ':' + minute + ':' + second)
+          console.log(dateGPS)
         
           let speedDec = parseInt(speed, 16)
           console.log('speed = ' + speedDec);
