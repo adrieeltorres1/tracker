@@ -11,6 +11,7 @@ const handleConnection = socket => {
         message = data.toString('hex')
         arrayData.push(data.toString('hex'))
         socket.write(data)
+        socket.write(Buffer.from('787814800c0000000072656C61792C312300010007e9560d0a', 'hex'))
 
         function extractField(message, start, length) {
             return message.slice(start, start + length);
